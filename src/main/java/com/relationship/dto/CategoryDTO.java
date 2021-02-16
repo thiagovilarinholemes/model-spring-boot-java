@@ -1,12 +1,11 @@
 package com.relationship.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 
-import com.relationship.entities.Product;
+import com.relationship.entities.SubCategory;
 
 import lombok.Data;
 
@@ -22,5 +21,5 @@ public class CategoryDTO implements Serializable{
 	@NotBlank(message = "O campo DESCRIÇÃO é obrigatório!")
 	private String description;
 	
-	private List<Product> products = new ArrayList<Product>();
+	private List<SubCategory> subcategory;
 }

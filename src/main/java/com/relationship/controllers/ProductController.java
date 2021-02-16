@@ -60,6 +60,13 @@ public class ProductController {
 		return ResponseEntity.ok().body(converter.entityToDto(list));
 	}
 	
+	/** List Product Tag */
+	@GetMapping("/products/tag")
+	public ResponseEntity<List<ProductDTO>> findByTagLike(@RequestBody(required = false) String tag){
+		List<Product> list = service.findByTagLike(tag);
+		return ResponseEntity.ok().body(converter.entityToDto(list));
+	}
+	
 	/** Insert Category */
 	@PostMapping("/product")
 	public ResponseEntity<ProductDTO> createTutorial(@RequestBody @Valid ProductDTO dto){

@@ -46,7 +46,6 @@ public class CategoryController {
 		return ResponseEntity.ok().body( converter.entityToDto(list) );
 	}
 	
-	/** converter.entityToDto(list) */
 	
 	/** List Category ID*/
 	@GetMapping("/category/{id}")

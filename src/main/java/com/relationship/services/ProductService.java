@@ -10,7 +10,6 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.relationship.entities.Category;
 import com.relationship.entities.Product;
 import com.relationship.repositories.ProductRepository;
 import com.relationship.services.exceptions.ResourceNotFoundException;
@@ -39,6 +38,13 @@ public class ProductService {
 	public List<Product> findByNameContaining(String name){
 		JSONObject json = new JSONObject(name);
 		return repository.findByNameContaining(json.getString("name"));
+	}
+	
+	/** Method List Tutorial Tag */
+	@Transactional(readOnly = true)
+	public List<Product> findByTagLike(String tag){
+		JSONObject json = new JSONObject(tag);
+		return repository.searchTag(json.getString("tag"));
 	}
 	
 	/** Method Insert Product */

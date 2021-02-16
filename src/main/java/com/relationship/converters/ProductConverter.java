@@ -3,12 +3,9 @@ package com.relationship.converters;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
-import com.relationship.dto.CategoryDTO;
 import com.relationship.dto.ProductDTO;
-import com.relationship.entities.Category;
 import com.relationship.entities.Product;
 
 @Component
@@ -22,7 +19,7 @@ public class ProductConverter {
 		dto.setPrice(product.getPrice());
 		dto.setActive(product.getActive());
 		dto.setTag(product.getTag());
-		dto.setCategory(product.getCategory());
+		dto.setSubcategories(product.getSubcategories());
 		return dto;
 		
 //		ModelMapper mapper = new ModelMapper();
@@ -42,7 +39,7 @@ public class ProductConverter {
 		product.setPrice(dto.getPrice());
 		product.setActive(dto.getActive());
 		product.setTag(dto.getTag());
-		product.setCategory(dto.getCategory());
+		product.setSubcategories(dto.getSubcategories());
 		return product;
 //		
 //		ModelMapper mapper = new ModelMapper();

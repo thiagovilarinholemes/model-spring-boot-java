@@ -1,20 +1,16 @@
 package com.relationship.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.*;
-
-import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -45,7 +41,16 @@ public class Category implements Serializable{
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Product> products;
+	private List<SubCategory> subcategory;
+	
+	public Category(Long id, String name, String description) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.createdDate = Calendar.getInstance();
+	}
+	
 }
 
 
